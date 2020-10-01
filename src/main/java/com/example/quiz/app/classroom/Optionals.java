@@ -1,14 +1,15 @@
-package com.example.quiz.app;
+package com.example.quiz.app.classroom;
 
+import com.example.quiz.app.generateTestDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class Warrior {
+public class Optionals {
     @Autowired
-    ShadyService shadyService;
+    generateTestDataService shadyService;
 
     public String passWhatever() {
         return shadyService.getData();
@@ -66,20 +67,20 @@ public class Warrior {
 
     public Boolean filterList(String param) {
 
-        return Optional
-                .ofNullable(shadyService.getData())
-                .filter(s -> !s.isEmpty())
-                .isPresent();
+//        return Optional
+//                .ofNullable(shadyService.getData())
+//                .filter(s -> !s.isEmpty())
+//                .isPresent();
 
-//        var result = shadyService.getList();
-//
-//        if (result == null) throw new RuntimeException("Empty");
-//        if (result.size() == 0) throw new RuntimeException("Empty");
-//
-//        for (int i = 0; i < result.size(); i++) {
-//            if (result.get(i).equals(param)) return true;
-//        }
-//        return false;
+        var result = shadyService.getList();
+
+        if (result == null) throw new RuntimeException("Empty");
+        if (result.size() == 0) throw new RuntimeException("Empty");
+
+        for (int i = 0; i < result.size(); i++) {
+            if (result.get(i).equals(param)) return true;
+        }
+        return false;
     }
 
 }

@@ -1,7 +1,7 @@
 package com.example.quiz;
 
-import com.example.quiz.app.ShadyService;
-import com.example.quiz.app.Warrior;
+import com.example.quiz.app.generateTestDataService;
+import com.example.quiz.app.classroom.Optionals;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,13 +17,13 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-class QuizApplicationTests {
+class OptionalsTests {
 
     @MockBean
-    ShadyService shadyService;
+    generateTestDataService shadyService;
 
     @Autowired
-    Warrior warrior;
+    Optionals warrior;
 
     @Test
     void passWhatever1() {

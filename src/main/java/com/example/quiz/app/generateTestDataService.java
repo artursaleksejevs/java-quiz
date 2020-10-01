@@ -6,11 +6,18 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public class ShadyService {
+public class generateTestDataService {
+
+    public generateTestDataService(){
+
+    }
+
     public String getData() {
         return "Whatever";
     }
+
     public List<String> getList() { return null; };
+
     public List<Debtor> getDebtors() {
         Debtor d01 = new Debtor ("John Kristopherson", 80, "EUR", 22);
         Debtor d02 = new Debtor ("Stephan Anderson ", 1000, "SEK", 25);

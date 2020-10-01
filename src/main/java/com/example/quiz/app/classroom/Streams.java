@@ -1,21 +1,18 @@
-package com.example.quiz.app;
+package com.example.quiz.app.classroom;
 
+import com.example.quiz.app.generateTestDataService;
 import com.example.quiz.app.model.Debtor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.lang.reflect.Array;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
-public class StreamWarrior {
+public class Streams {
     @Autowired
-    ShadyService shadyService = new ShadyService();
+    generateTestDataService shadyService = new generateTestDataService();
 
     public List<String> AllDebtorNames() {
 
@@ -85,6 +82,17 @@ public class StreamWarrior {
                         .equals(d.getDebtCurrency()))
                 .map(d -> d.getDebtorName())
                 .collect(Collectors.toList());
+    }
+
+    public List<String> GroupedDebtorsByAgeStatistics(){
+        /* 1st step Retrieve country which average age is the most closest to the overall debtors average age
+            CHF=33,5; EUR=41,5; RUB=40,5; SEK=22; USD=32; OVERAL_AVARAGE= 36,61
+            deltas CHF=3,11(the most closest); EUR;4,89; RUB=3,89; SEK = 14,61; USD=4,61
+
+           2nd step From that country retrieve debtor with largest debt amount
+           Kunz Angelina - 180
+        */
+        return List.of();
     }
 
 }

@@ -1,28 +1,23 @@
 package com.example.quiz;
 
-import com.example.quiz.app.ShadyService;
-import com.example.quiz.app.StreamWarrior;
-import com.example.quiz.app.Warrior;
+import com.example.quiz.app.classroom.Streams;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class StreamsTests {
 
     @Autowired
-    StreamWarrior warrior;
+    Streams warrior;
 
     @Test
     void AllDebtorNames() {
