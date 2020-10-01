@@ -31,7 +31,7 @@ public class StreamWarrior {
     }
 
     // Return debtor with fewer debt amount in RUB
-    public String SpecificSortedDebtAmounts() {
+    public String SpecificSortedDebtAmounts(String currency) {
 //        List<Debtor> debtorsRUB = new ArrayList<Debtor>();
 //        List<Debtor> debtors = shadyService.getDebtors();
 //        for (int i = 0; i < debtors.size(); i++) {
@@ -41,7 +41,7 @@ public class StreamWarrior {
 //        Collections.sort(debtorsRUB, Comparator.comparingInt(Debtor::getDebtAmount));
 //        return debtorsRUB.get(0).getDebtorName();
         return shadyService.getDebtors().stream()
-                .filter(d -> "x".equals(d.getDebtCurrency()))
+                .filter(d -> currency.equals(d.getDebtCurrency()))
                 .min((a, b) -> a.getDebtAmount() - b.getDebtAmount())
                 .orElseThrow(() -> new RuntimeException("Wrong currency"))
                 .getDebtorName();
@@ -49,7 +49,7 @@ public class StreamWarrior {
     }
 
     //Return Sorted List Of Debtors grouped by currency which has fewever avarage age
-    public List<String> GroupedDebtosrByAge() {
+    public List<String> GroupedDebtosrByAgeSpaggetti() {
         //Manual calculation: CHF=33,5; EUR=41,5; RUB=40,5; SEK=22; USD=32
         //Sorted Debtors with currency SEK should be returned
         //return List.of("Stephan Anderson", "Zivanovic Ivanka");
@@ -73,7 +73,7 @@ public class StreamWarrior {
 
     }
 
-    public List<String> GroupedDebtosrByAge2() {
+    public List<String> GroupedDebtosrByAge() {
 
         Map <String, Double> groupedList =  shadyService.getDebtors().stream()
                 .collect(Collectors.groupingBy(Debtor::getDebtCurrency,

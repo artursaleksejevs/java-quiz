@@ -32,18 +32,25 @@ class StreamsTests {
 
     @Test
     void SpecificSortedDebtAmounts() {
-        var result = warrior.SpecificSortedDebtAmounts();
+        var result = warrior.SpecificSortedDebtAmounts("RUB");
         assertEquals(result, "Natasha Sasnovskaja");
-    }
-    @Test
-    void GroupedDebtosrByAge() {
-        var result = warrior.GroupedDebtosrByAge();
-        assertEquals(result, List.of("Stephan Anderson", "Zivanovic Ivanka"));
     }
 
     @Test
-    void GroupedDebtosrByAge2() {
-        var result = warrior.GroupedDebtosrByAge2();
-        assertEquals(result, List.of("Stephan Anderson", "Zivanovic Ivanka"));
+    void SpecificSortedDebtAmountsWithOptionalException() {
+        Exception exception = assertThrows(RuntimeException.class, () -> warrior.SpecificSortedDebtAmounts(""));
+        assertEquals(exception.getMessage(), "Wrong currency");
+    }
+
+    @Test
+    void GroupedDebtosrByAgeSpaggetti() {
+        var result = warrior.GroupedDebtosrByAgeSpaggetti();
+        assertEquals(result, List.of("Stephan Anderson ", "Zivanovic Ivanka"));
+    }
+
+    @Test
+    void GroupedDebtosrByAge() {
+        var result = warrior.GroupedDebtosrByAge();
+        assertEquals(result, List.of("Stephan Anderson ", "Zivanovic Ivanka"));
     }
 }
