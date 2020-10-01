@@ -40,4 +40,10 @@ class StreamsTests {
         var result = warrior.GroupedDebtosrByAge();
         assertEquals(result, List.of("Stephan Anderson", "Zivanovic Ivanka"));
     }
+
+    @Test
+    void GroupedDebtosrByAge2() {
+        var result = warrior.GroupedDebtosrByAge2();
+        assertEquals(result, List.of("Stephan Anderson", "Zivanovic Ivanka"));
+    }
 }
